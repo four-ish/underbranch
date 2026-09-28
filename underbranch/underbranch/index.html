@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Underbranch — Free collaborative LaTeX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">u</div><span>underbranch</span><span class="free-pill">FREE</span></div>
+    <div class="project-title"><span class="dot green"></span><strong>Research Paper</strong><span class="muted">/</span><span class="muted">My projects</span></div>
+    <div class="top-actions">
+      <button class="icon-btn" title="Search">⌕</button>
+      <button class="icon-btn" title="Help">?</button>
+      <button class="avatar">JD</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="side-tabs"><button class="side-tab active">Files</button><button class="side-tab">Outline</button></div>
+      <div class="file-actions"><button class="new-file" id="newFileBtn">＋ New file</button><button class="more">•••</button></div>
+      <div class="file-tree">
+        <div class="tree-row folder open"><span class="chevron">⌄</span><span class="folder-icon">▾</span><span>Research Paper</span></div>
+        <div class="tree-row selected" data-file="main.tex"><span class="file-icon tex">T<small>e</small></span><span>main.tex</span><span class="row-more">⋯</span></div>
+        <div class="tree-row" data-file="references.bib"><span class="file-icon bib">B</span><span>references.bib</span><span class="row-more">⋯</span></div>
+        <div class="tree-row" data-file="figures"><span class="chevron">›</span><span class="folder-icon">▾</span><span>figures</span></div>
+        <div class="tree-row" data-file="README.md"><span class="file-icon md">M</span><span>README.md</span><span class="row-more">⋯</span></div>
+      </div>
+      <div class="sidebar-bottom"><div class="storage-head"><span>Project storage</span><span>12%</span></div><div class="progress"><i></i></div><p>Free forever · 1 GB included</p><button class="invite-btn">＋ Invite collaborators</button></div>
+    </aside>
+
+    <main class="main-panel">
+      <div class="toolbar">
+        <div class="toolbar-group"><button class="tool-btn" id="menuBtn">☰</button><button class="tool-btn">↶</button><button class="tool-btn disabled">↷</button><span class="divider"></span><button class="tool-btn" title="Split view">▥</button><button class="tool-btn" title="Settings">⚙</button></div>
+        <div class="compile-state"><span class="dot green"></span> All changes saved</div>
+        <div class="toolbar-group"><button class="share-btn">↗ Share</button><button class="compile-btn" id="compileBtn"><span class="play">▶</span> Compile <span class="caret">⌄</span></button></div>
+      </div>
+      <div class="editor-workspace">
+        <section class="editor-pane">
+          <div class="editor-tab"><span class="file-icon tex">T<small>e</small></span><span>main.tex</span><span class="close">×</span></div>
+          <div class="code-editor" id="editor" contenteditable="true" spellcheck="false"><div class="line"><span class="ln">1</span><span class="code cmd">\documentclass</span><span class="plain">{article}</span></div><div class="line"><span class="ln">2</span><span class="code cmd">\usepackage</span><span class="plain">{amsmath}</span></div><div class="line"><span class="ln">3</span><span class="code cmd">\usepackage</span><span class="plain">{graphicx}</span></div><div class="line empty"><span class="ln">4</span></div><div class="line"><span class="ln">5</span><span class="code cmd">\title</span><span class="plain">{An Introduction to Underbranch}</span></div><div class="line"><span class="ln">6</span><span class="code cmd">\author</span><span class="plain">{Jordan Doe}</span></div><div class="line"><span class="ln">7</span><span class="code cmd">\date</span><span class="plain">{September 2026}</span></div><div class="line empty"><span class="ln">8</span></div><div class="line"><span class="ln">9</span><span class="code cmd">\begin</span><span class="plain">{document}</span></div><div class="line"><span class="ln">10</span><span class="code cmd">\maketitle</span></div><div class="line empty"><span class="ln">11</span></div><div class="line"><span class="ln">12</span><span class="code cmd">\section</span><span class="plain">{Introduction}</span></div><div class="line"><span class="ln">13</span><span class="plain">This is a free and open way to write beautiful</span></div><div class="line"><span class="ln">14</span><span class="plain">documents together. Underbranch brings your</span></div><div class="line"><span class="ln">15</span><span class="plain">ideas into focus, one branch at a time.</span></div><div class="line empty"><span class="ln">16</span></div><div class="line"><span class="ln">17</span><span class="code cmd">\section</span><span class="plain">{A Simple Equation}</span></div><div class="line"><span class="ln">18</span><span class="code cmd">\begin</span><span class="plain">{equation}</span></div><div class="line"><span class="ln">19</span><span class="plain">  E = mc^2</span></div><div class="line"><span class="ln">20</span><span class="code cmd">\end</span><span class="plain">{equation}</span></div><div class="line empty"><span class="ln">21</span></div><div class="line"><span class="ln">22</span><span class="code cmd">\end</span><span class="plain">{document}</span></div></div>
+          <div class="editor-status"><span>Ln 13, Col 44</span><span>UTF-8</span><span>LaTeX</span><span>⌘ Enter to compile</span></div>
+        </section>
+        <section class="preview-pane">
+          <div class="preview-head"><span>PDF preview</span><div><button class="mini-btn" id="zoomOut">−</button><span class="zoom" id="zoomValue">100%</span><button class="mini-btn" id="zoomIn">＋</button><span class="divider"></span><button class="mini-btn" id="downloadTex" title="Download source">↓</button><button class="mini-btn" id="fullscreenPreview" title="Fullscreen preview">⛶</button></div></div>
+          <div class="paper-wrap"><article class="paper"><h1>An Introduction<br>to Underbranch</h1><div class="paper-author">Jordan Doe</div><div class="paper-date">September 2026</div><hr><h2>1&nbsp;&nbsp; Introduction</h2><p>This is a free and open way to write beautiful documents together. Underbranch brings your ideas into focus, one branch at a time.</p><h2>2&nbsp;&nbsp; A Simple Equation</h2><div class="equation">E = mc<sup>2</sup></div><p class="small">Underbranch is built for everyone: students, researchers, and curious minds.</p><div class="page-num">1</div></article></div>
+        </section>
+      </div>
+      <div class="log-panel" id="logPanel"><div class="log-title"><span>Compilation log</span><button id="closeLog">×</button></div><div class="log-content"><span class="ok">✓</span> Compilation successful in 0.8s<br><span class="muted">No errors or warnings. PDF updated just now.</span></div></div>
+    </main>
+  </div>
+  <div class="toast" id="toast">Project compiled successfully</div>
+  <script src="app.js"></script>
+</body>
+</html>
